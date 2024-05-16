@@ -24,6 +24,9 @@ function loadChoreBank() {
     if (storedChoreBank) {
         choreBank = JSON.parse(storedChoreBank);
     }
+}
+
+function renderChoreList() {
     const choreList = document.getElementById('chore-list');
     if (!choreList) {
         console.error("chore-list element not found.");
@@ -41,14 +44,6 @@ function loadChoreBank() {
         choreList.appendChild(div);
     });
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    if (window.location.pathname.endsWith('chores.html')) {
-        loadChoreBank();
-    }
-});
-
-
 
 function loadChoreOptions() {
     const choreButtons = document.getElementById('chore-buttons');
@@ -80,6 +75,7 @@ function addSelectedChore(choreIndex) {
 }
 
 function renderChores() {
+    loadChoreBank(); // Ensure the latest chore data is loaded
     const choreList = document.getElementById('chores');
     if (!choreList) {
         console.error("chores element not found.");
@@ -94,10 +90,18 @@ function renderChores() {
         choreCounts[choreItem.chore]++;
     });
     for (const chore in choreCounts) {
-        const div = document.createElement('div');
-        div.className = 'chore';
-        div.innerHTML = `<span>${chore}</span><span>${choreCounts[chore]} times</span>`;
-        choreList.appendChild(div);
+        const choreData = choreBank.find(c => c.name === chore);
+        if (choreData) {
+            const div = document.createElement('div');
+            div.className = 'chore';
+            div.innerHTML = `
+                <img src="${choreData.img}" alt="${choreData.name}">
+                <span>${choreData.name}</span>
+                <span>${choreCounts[chore]} times</span>
+                <span>$${choreData.reward.toFixed(2)}</span>
+            `;
+            choreList.appendChild(div);
+        }
     }
 }
 
@@ -170,5 +174,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     } else if (window.location.pathname.endsWith('chores.html')) {
         loadChoreBank();
+        renderChoreList();
     }
 });
