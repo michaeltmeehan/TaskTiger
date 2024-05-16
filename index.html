@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskTiger - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <h1>TaskTiger</h1>
+        <img src="img/tasktiger.png" alt="TaskTiger" id="dashboard-image">
+        <h2>Dashboard</h2>
+        <div id="user-list" class="centered"></div>
+        <button onclick="navigateTo('newuser.html')">Add User</button>
+        <button onclick="navigateTo('chores.html')">Manage Chores</button>
+    </div>
+    <script src="js/utility.js"></script>
+    <script src="js/user.js"></script>
+    <script src="js/chore.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

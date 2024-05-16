@@ -1,0 +1,291 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f8ff;
+}
+
+#app {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 320px;
+}
+
+h1 {
+    color: #4caf50;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #2196f3;
+    margin-bottom: 15px;
+}
+
+h3 {
+    color: #f39c12;
+}
+
+#avatar-options, #color-options {
+    margin: 20px 0;
+}
+
+#avatar-options .avatars, #color-options .colors {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#avatar-options .avatars img, .color-box {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 5px;
+}
+
+#avatar-options .avatars img.selected, .color-box.selected {
+    border-color: #4caf50;
+}
+
+#avatar-display img {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+input[type="text"], input[type="number"], input[type="color"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#chore-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.chore {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.chore img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.chore span {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    text-align: center; /* Center the chore labels */
+}
+
+.chore input {
+    width: 80px;
+    text-align: center;
+}
+
+.chore-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.chore-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.chore-button img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+}
+
+.chore-button span {
+    font-size: 1em;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+
+
+
+
+#chore-list, #chores, #savings-list {
+    text-align: left;
+    margin-top: 10px;
+}
+
+#chore-list div, .chore, #savings-list li {
+    background-color: #f1f1f1;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.chore span, #savings-list li span {
+    display: inline-block;
+    width: calc(50% - 10px);
+}
+
+.chore span:last-child, #savings-list li span:last-child {
+    text-align: right;
+}
+
+#dashboard-image {
+    width: 100%;
+    max-width: 200px;
+    margin: 20px auto;
+    display: block;
+}
+
+.centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.user button {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    background-color: var(--color);
+    color: white;
+    cursor: pointer;
+    text-align: left;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 200px;
+    justify-content: space-between;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.user button:hover {
+    background-color: var(--hover-color);
+}
+
+.user button:active {
+    transform: scale(0.95);
+}
+
+.user button img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.user button span {
+    flex-grow: 1;
+    font-size: 1.1em;
+    color: white;
+}
+
+.chore-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.chore-buttons button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 45%;
+}
+
+.chore-buttons button img {
+    width: 40px;
+    height: 40px;
+}
+
+.chore-buttons button:hover {
+    background-color: #45a049;
+}
+
+.chore-buttons button:active {
+    transform: scale(0.95);
+}
+
+#savings-total {
+    font-size: 1.5em;
+    color: #4caf50;
+    margin-bottom: 10px;
+}
+
+
+.delete-button {
+    margin-left: 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: darkred;
+}
+

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskTiger - User Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <h1>TaskTiger</h1>
+        <h2 id="username"></h2>
+        <div id="avatar-display"></div>
+
+        <div id="chore-tracker">
+            <h2>Chore Tracker</h2>
+            <div id="chore-buttons" class="chore-buttons"></div>
+            <div id="chores"></div>
+        </div>
+
+        <div id="savings-tracker">
+            <h2>Total Savings</h2>
+            <div id="savings-total"></div>
+            <canvas id="savingsChart" width="300" height="150"></canvas>
+        </div>
+
+        <button onclick="editProfile()">Edit Profile</button>
+        <button onclick="goBack()">Back to Dashboard</button>
+        <button onclick="deleteCurrentUser()" class="delete-button">Delete User</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+    <script src="js/utility.js"></script>
+    <script src="js/user.js"></script>
+    <script src="js/chore.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

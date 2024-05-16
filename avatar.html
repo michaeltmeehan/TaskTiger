@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskTiger - Edit Profile</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <h1>TaskTiger</h1>
+        <h2>Edit Profile</h2>
+        <input type="text" id="userNameInput" placeholder="Enter user name">
+        <div id="avatar-options">
+            <h3>Select an Avatar</h3>
+            <div class="avatars">
+                <img src="img/avatars/avatar1.png" onclick="selectAvatar('avatar1.png')">
+                <img src="img/avatars/avatar2.png" onclick="selectAvatar('avatar2.png')">
+                <img src="img/avatars/avatar3.png" onclick="selectAvatar('avatar3.png')">
+                <img src="img/avatars/avatar4.png" onclick="selectAvatar('avatar4.png')">
+                <img src="img/avatars/avatar5.png" onclick="selectAvatar('avatar5.png')">
+                <img src="img/avatars/avatar6.png" onclick="selectAvatar('avatar6.png')">
+                <img src="img/avatars/avatar7.png" onclick="selectAvatar('avatar7.png')">
+                <img src="img/avatars/avatar8.png" onclick="selectAvatar('avatar8.png')">
+                <img src="img/avatars/avatar9.png" onclick="selectAvatar('avatar9.png')">
+                <img src="img/avatars/avatar10.png" onclick="selectAvatar('avatar10.png')">
+            </div>
+        </div>
+        <div id="color-options">
+            <h3>Select a Color</h3>
+            <div class="colors">
+                <div class="color-box" style="background-color: pink;" onclick="selectColor('pink')"></div>
+                <div class="color-box" style="background-color: blue;" onclick="selectColor('blue')"></div>
+                <div class="color-box" style="background-color: green;" onclick="selectColor('green')"></div>
+                <div class="color-box" style="background-color: yellow;" onclick="selectColor('yellow')"></div>
+                <div class="color-box" style="background-color: red;" onclick="selectColor('red')"></div>
+                <div class="color-box" style="background-color: purple;" onclick="selectColor('purple')"></div>
+            </div>
+        </div>
+        <button onclick="saveEditedUser()">Save Changes</button>
+        <button onclick="goBack()">Back to Dashboard</button>
+    </div>
+    <script src="js/utility.js"></script>
+    <script src="js/user.js"></script>
+    <script src="js/chore.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
