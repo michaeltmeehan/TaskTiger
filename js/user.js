@@ -24,6 +24,7 @@ function addUser() {
     }
 }
 
+
 function deleteUser(index) {
     if (confirm(`Are you sure you want to delete ${users[index].name}?`)) {
         users.splice(index, 1); // Remove the user from the array
@@ -159,6 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
         loadChoreBank();
     }
 });
+
 
 function loadAvatar() {
     const avatarDisplay = document.getElementById('avatar-display');

@@ -1,6 +1,29 @@
 // Chore-related functions
+let choreBank = [
+    { name: 'Clearing the table', reward: 1, img: 'img/chores/clearing_the_table.png' },
+    { name: 'Unpacking the dishwasher', reward: 2, img: 'img/chores/unpacking_the_dishwasher.png' },
+    { name: 'Unpacking the groceries', reward: 2, img: 'img/chores/unpacking_the_groceries.png' },
+    { name: 'Feeding the dog', reward: 1.5, img: 'img/chores/feeding_the_dog.png' },
+    { name: 'Helping with dinner', reward: 2.5, img: 'img/chores/helping_with_dinner.png' },
+    { name: 'Making the bed', reward: 1, img: 'img/chores/making_the_bed.png' },
+    { name: 'Taking out the trash', reward: 1.5, img: 'img/chores/taking_out_the_trash.png' },
+    { name: 'Putting toys away', reward: 1, img: 'img/chores/putting_toys_away.png' }
+];
+
+function updateChoreReward(index, reward) {
+    choreBank[index].reward = parseFloat(reward);
+    saveChoreBank();
+}
+
+function saveChoreBank() {
+    localStorage.setItem('choreBank', JSON.stringify(choreBank));
+}
 
 function loadChoreBank() {
+    const storedChoreBank = localStorage.getItem('choreBank');
+    if (storedChoreBank) {
+        choreBank = JSON.parse(storedChoreBank);
+    }
     const choreList = document.getElementById('chore-list');
     if (!choreList) {
         console.error("chore-list element not found.");
@@ -19,14 +42,13 @@ function loadChoreBank() {
     });
 }
 
-function updateChoreReward(index, reward) {
-    choreBank[index].reward = parseFloat(reward);
-    saveChoreBank();
-}
+document.addEventListener('DOMContentLoaded', () => {
+    if (window.location.pathname.endsWith('chores.html')) {
+        loadChoreBank();
+    }
+});
 
-function saveChoreBank() {
-    // Save the chore bank to local storage or a database as needed
-}
+
 
 function loadChoreOptions() {
     const choreButtons = document.getElementById('chore-buttons');
@@ -95,6 +117,10 @@ function renderSavings() {
         savingsChartInstance.destroy();
     }
 
+    if (!currentUser.savingsHistory) {
+        currentUser.savingsHistory = [];
+    }
+
     const labels = currentUser.savingsHistory.map(entry => new Date(entry.date).toLocaleDateString());
     const data = currentUser.savingsHistory.map(entry => entry.amount);
 
@@ -130,24 +156,6 @@ function renderSavings() {
     });
 }
 
-
-function loadChoreOptions() {
-    const choreButtons = document.getElementById('chore-buttons');
-    if (!choreButtons) {
-        console.error("chore-buttons element not found.");
-        return;
-    }
-    console.log("Loading chore options..."); // Debug log
-    choreButtons.innerHTML = '';
-    choreBank.forEach((chore, index) => {
-        const button = document.createElement('button');
-        button.className = 'chore-button';
-        button.innerHTML = `<img src="${chore.img}" alt="${chore.name}"><br>${chore.name} - $${chore.reward.toFixed(2)}`;
-        button.onclick = () => addSelectedChore(index);
-        choreButtons.appendChild(button);
-    });
-}
-
 document.addEventListener('DOMContentLoaded', () => {
     if (window.location.pathname.endsWith('user.html')) {
         currentUser = users[localStorage.getItem('currentUserIndex')];
@@ -158,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
             renderSavings();
         }
         if (document.getElementById('chore-buttons')) {
-            loadChoreOptions(); // Ensure chore options are loaded correctly
+            loadChoreOptions();
         }
     } else if (window.location.pathname.endsWith('chores.html')) {
         loadChoreBank();

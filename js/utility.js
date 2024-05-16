@@ -1,16 +1,6 @@
 // utility.js
 
 const users = JSON.parse(localStorage.getItem('users')) || [];
-const choreBank = [
-    { name: 'Clearing the table', reward: 1, img: 'img/chores/clearing_the_table.png' },
-    { name: 'Unpacking the dishwasher', reward: 2, img: 'img/chores/unpacking_the_dishwasher.png' },
-    { name: 'Unpacking the groceries', reward: 2, img: 'img/chores/unpacking_the_groceries.png' },
-    { name: 'Feeding the dog', reward: 1.5, img: 'img/chores/feeding_the_dog.png' },
-    { name: 'Helping with dinner', reward: 2.5, img: 'img/chores/helping_with_dinner.png' },
-    { name: 'Making the bed', reward: 1, img: 'img/chores/making_the_bed.png' },
-    { name: 'Taking out the trash', reward: 1.5, img: 'img/chores/taking_out_the_trash.png' },
-    { name: 'Putting toys away', reward: 1, img: 'img/chores/putting_toys_away.png' }
-];
 let selectedAvatar = '';
 let selectedColor = '';
 let currentUser = null;
