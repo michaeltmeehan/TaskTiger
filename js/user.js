@@ -102,16 +102,33 @@ function selectAvatar(avatar) {
     });
 }
 
+
 function selectColor(color) {
     selectedColor = color;
     const colorElements = document.querySelectorAll('.color-box');
     colorElements.forEach(element => {
-        if (element.style.backgroundColor === color) {
+        if (element.style.backgroundColor === color || element.style.backgroundColor === convertToRGB(color)) {
             element.classList.add('selected');
         } else {
             element.classList.remove('selected');
         }
     });
+    console.log('Selected color:', selectedColor); // Debug log
+}
+
+function convertToRGB(hex) {
+    // Convert hex color code to RGB format
+    let r = 0, g = 0, b = 0;
+    if (hex.length === 4) {
+        r = parseInt(hex[1] + hex[1], 16);
+        g = parseInt(hex[2] + hex[2], 16);
+        b = parseInt(hex[3] + hex[3], 16);
+    } else if (hex.length === 7) {
+        r = parseInt(hex[1] + hex[2], 16);
+        g = parseInt(hex[3] + hex[4], 16);
+        b = parseInt(hex[5] + hex[6], 16);
+    }
+    return `rgb(${r}, ${g}, ${b})`;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
